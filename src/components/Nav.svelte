@@ -17,7 +17,7 @@
             <div class="">
                 <nav class="flex items-center justify-between flex-wrap  ">
                     <div class="flex items-center flex-no-shrink text-white mr-6 ">
-                        <img src="https://nemtroutes.com/img/logo/logo.png" alt="" class="h-12 xl:h-20  mr-2 ">
+                        <img src="img/flohmarkthalle-muenster-logo.jpg" alt="" class="h-32 xl:h-32  mr-2 ">
 
                     </div>
                     <div class="block lg:hidden">
