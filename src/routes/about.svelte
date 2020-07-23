@@ -55,7 +55,7 @@
 			I’m a red button. Click me
 		</button>
 
-		<div class="p-32" class:bg-red-500={true}>This red background is removed in prod</div>
+		<div class="p-32" class:bg-red-500={true}>This red background is not removed in prod thanks to svelteExtractor in tailwind.config.js</div>
 
 
 		<div class="secret-text" class:is-shown="{isToggled}">
