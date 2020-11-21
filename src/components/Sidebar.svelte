@@ -1,56 +1,76 @@
-<!-- Sidebar Section -->
-<aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+<script>
+    export let post;
 
+    // TODO USE THIS IS PROD
+    // const openings = post.sidebar.content[0].content;
+    // const contact = post.sidebar.content[1].content;
+    // const direction = post.sidebar.content[2].content;
+    // const about = post.sidebar.content[3].content;
+
+    // TODO REMOVE IN PROD!!!  
+    $: openings = post.sidebar.content[0].content;
+    $: contact = post.sidebar.content[1].content;
+    $: direction = post.sidebar.content[2].content;
+    $: about = post.sidebar.content[3].content;
+    import { onMount } from 'svelte';
+    import { getLink } from '../store/store';
+    onMount(async () => {
+		const res = await fetch(getLink('sidebar'));
+		post = await res.json();
+    });
+    // ------------
+</script>
+
+<aside class="w-full md:w-1/3 flex flex-col items-center px-3">
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">
         <p class="text-xl font-semibold pb-5">Öffnungszeiten</p>
-        
-        <p class="pb-2">Wir haben für Sie geöffnet:</p>
+        <p class="pb-2">{openings[0][0]}</p>
         <div class="flex flex-wrap overflow-hidden">
 
             <div class="w-1/2 overflow-hidden">
-                Dienstag - Freitag
+                {openings[1][0]}
             </div>
         
             <div class="w-1/2 overflow-hidden">
-                11 - 17 Uhr
+                {openings[1][1]}
             </div>
             <div class="w-1/2 overflow-hidden">
-                Samstag
+                {openings[2][0]}
             </div>
             
             <div class="w-1/2 overflow-hidden">
-                11 - 16 Uhr
+                {openings[2][1]}
             </div>
-            </div>
+        </div>
     </div>
 
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">
         <p class="text-xl font-semibold pb-5">Kontakt</p>
-        <p class="pb-2">Kontaktieren Sie uns:</p>
+        <p class="pb-2">{contact[0][0]}</p>
         <div class="flex flex-wrap overflow-hidden">
 
             <div class="md:w-full lg:w-1/4 w-1/4 overflow-hidden">
-                Telefon:
+                {contact[1][0]}
             </div>
         
             <div class="md:w-full lg:w-3/4 w-3/4 overflow-hidden">
-                <strong>0163 - 1604333</strong>
+                <strong>{contact[1][1]}</strong>
             </div>
             <div class="md:w-full lg:w-1/4 w-1/4 overflow-hidden">
-                E-Mail:
+                {contact[2][0]}
             </div>
             
             <div class="md:w-full lg:w-3/4 w-3/4 overflow-hidden">
-                <strong class="md:text-sm lg:text-base">info@flohmarkthalle.com</strong>
+                <strong class="md:text-sm lg:text-base">{contact[2][1]}</strong>
             </div>
-            </div>
+        </div>
     </div>
     
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">
         <p class="text-xl font-semibold pb-5">Anfahrt</p>
-        <p class="pb-2">Unsere Adresse:</p>
-        <p class="pb-2"><strong>Daimlerweg 34, 48163 Münster</strong></p>
-        <p class="pb-2">Fahren Sie in Münster an der A1234 Richtung Blabla ab</p>
+        <p class="pb-2">{direction[0][0]}</p>
+        <p class="pb-2"><strong>{direction[1][0]}</strong></p>
+        <p class="pb-2">{direction[2][0]}</p>
         <a rel="noreferrer" href="https://www.google.com/maps/place/Flohmarkthalle/@51.927701,7.5934816,17z/data=!3m1!4b1!4m5!3m4!1s0x41700247998ea70f:0x3add206bed3678c3!8m2!3d51.927701!4d7.5956703" target="_blank" class="w-full bg-green-700 text-white font-bold text-sm uppercase rounded hover:bg-green-600 flex items-center justify-center px-2 py-3 mt-4">
             Google Maps
         </a>
@@ -58,7 +78,7 @@
     
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">
         <p class="text-xl font-semibold pb-5">Über uns</p>
-        <p class="pb-2">Wir sind die grüne Flohmarkthalle bla bla Umweltschutz günstig usw usw Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+        <span class="pb-2">{@html about}</span>
     </div>
 
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">
