@@ -1,5 +1,5 @@
 const preprocess = require('svelte-preprocess')
-const image = require('svelte-image');
+// const image = require('svelte-image');
 
 const imageOptions = {
 	optimizeAll: true, // optimize all images discovered in img tags
@@ -58,6 +58,6 @@ const imageOptions = {
 module.exports = {
 	preprocess: preprocess({
 		postcss: true,
-	},
-	image(imageOptions)),
+	})
+	 //image(imageOptions)),
 }

@@ -22,7 +22,13 @@ module.exports = {
     }
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        floh: '#90b506',
+        flohfit: '#06b54f'
+  
+      },
+    },
   },
   variants: {},
   plugins: [],
