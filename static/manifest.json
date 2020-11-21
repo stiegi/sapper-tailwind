@@ -1,8 +1,8 @@
 {
 	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
+	"theme_color": "#2a8961",
+	"name": "Flohmarkthalle Münster",
+	"short_name": "Flohmarkthalle",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [
