@@ -27,7 +27,7 @@
 
 <div class="container mx-auto flex flex-wrap py-6">
     <slot></slot>
-    <Sidebar post={sidebar} />
+    <Sidebar data={sidebar} />
 </div>
 
 <Footer />

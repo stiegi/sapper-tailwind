@@ -1,22 +1,22 @@
 <script>
-    export let post;
+    export let data;
 
     // TODO USE THIS IS PROD
-    // const openings = post.sidebar.content[0].content;
-    // const contact = post.sidebar.content[1].content;
-    // const direction = post.sidebar.content[2].content;
-    // const about = post.sidebar.content[3].content;
+    // const openings   = data.sidebar.blocks[0].content;
+    // const contact    = data.sidebar.blocks[1].content;
+    // const direction  = data.sidebar.blocks[2].content;
+    // const about      = data.sidebar.blocks[3].content;
 
     // TODO REMOVE IN PROD!!!  
-    $: openings = post.sidebar.content[0].content;
-    $: contact = post.sidebar.content[1].content;
-    $: direction = post.sidebar.content[2].content;
-    $: about = post.sidebar.content[3].content;
+    $: openings  = data.sidebar.blocks[0].content;
+    $: contact   = data.sidebar.blocks[1].content;
+    $: direction = data.sidebar.blocks[2].content;
+    $: about     = data.sidebar.blocks[3].content;
     import { onMount } from 'svelte';
     import { getLink } from '../store/store';
     onMount(async () => {
 		const res = await fetch(getLink('sidebar'));
-		post = await res.json();
+		data = await res.json();
     });
     // ------------
 </script>
